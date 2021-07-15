@@ -37,6 +37,10 @@ final class RegisterResponse implements RegisterResponseContract
             }
         }
 
+        if (is_null(config('fortify.email'))) {
+            return redirect('/');
+        }
+
         return redirect()->route('verification.notice');
     }
 }
